@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Chat</title>
+
+  <style>
+    /* 背景と中央寄せレイアウト */
+    html, body {
+      height: 100%;
+      margin: 0;
+      background: #f7f7f8; /* ChatGPT風の背景 */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: system-ui, sans-serif;
+    }
+
+    /* Crispウィジェットを少し小さめに表示して、モバイルではみ出し防止 */
+    #crisp-chatbox {
+      transform: scale(0.95);
+      transform-origin: bottom right;
+    }
+
+    @media (max-width: 480px) {
+      #crisp-chatbox {
+        transform: scale(0.85);
+      }
+    }
+
+    /* ChatGPT風の吹き出しスタイル（Crispの見た目上書き） */
+    .crisp-client .cc-message--operator .cc-message__content {
+      background: #444654 !important; /* AI風（濃いグレー） */
+      color: #fff !important;
+      border-radius: 10px !important;
+    }
+
+    .crisp-client .cc-message--user .cc-message__content {
+      background: #ececf1 !important; /* ユーザー風（淡いグレー） */
+      color: #000 !important;
+      border-radius: 10px !important;
+    }
+
+    .crisp-client .cc-message {
+      margin-bottom: 6px !important;
+    }
+  </style>
+
+  <!-- Crisp埋め込み -->
+  <script type="text/javascript">
+    window.$crisp = [];
+    window.CRISP_WEBSITE_ID = "92f06d88-a119-468b-a1de-e6750ae4e667"; // ← あなたのCrisp ID
+    (function() {
+      var d = document;
+      var s = d.createElement("script");
+      s.src = "https://client.crisp.chat/l.js";
+      s.async = 1;
+      d.getElementsByTagName("head")[0].appendChild(s);
+    })();
+  </script>
+</head>
+
+<body>
+  <!-- Crispチャットウィジェットの入れ物 -->
+  <div id="crisp-chatbox"></div>
+</body>
+</html>
